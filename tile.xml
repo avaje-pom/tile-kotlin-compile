@@ -2,7 +2,7 @@
 <project>
 
   <properties>
-    <kotlin.version>1.0</kotlin.version>
+    <kotlin.version>1.0.0</kotlin.version>
     <kotlin.plugin.main.source>src/main/java</kotlin.plugin.main.source>
     <kotlin.plugin.test.source>src/test/java</kotlin.plugin.test.source>
   </properties>
