@@ -1,11 +1,13 @@
-# tile-kotlin-compile
+# kotlin-compile maven tile
 
-Maven tile for Kotlin compile. It defaults to use src/main/java and src/test/java but you can configure that and the Kotlin version to use.
+Maven tile for performing Kotlin compile. It defaults to use src/main/java and src/test/java but you can configure that and the Kotlin version to use.
 
 ## Example use
 
+In your project pom under build / plugins add the tiles-maven-plugin with the following configuration. Note that the java-compile tile is there if your project also uses Java.
+
 ```xml
-      <!-- In maven build / plugins -->
+      <!-- maven build / plugins -->
 
       <plugin>
         <groupId>io.repaint.maven</groupId>
@@ -16,7 +18,6 @@ Maven tile for Kotlin compile. It defaults to use src/main/java and src/test/jav
           <tiles>
             <tile>org.avaje.tile:java-compile:1.1</tile>
             <tile>org.avaje.tile:kotlin-compile:1.1</tile>
-            <tile>org.avaje.tile:ebean-enhancement:1.1</tile>
           </tiles>
         </configuration>
       </plugin>
