@@ -2,9 +2,10 @@
 <project>
 
   <properties>
-    <kotlin.version>1.0.0</kotlin.version>
+    <kotlin.version>1.2.0</kotlin.version>
     <kotlin.plugin.main.source>src/main/java</kotlin.plugin.main.source>
     <kotlin.plugin.test.source>src/test/java</kotlin.plugin.test.source>
+    <kotlin.plugin.jvmTarget>1.8</kotlin.plugin.jvmTarget>
   </properties>
 
   <build>
@@ -22,6 +23,7 @@
               <goal>compile</goal>
             </goals>
             <configuration>
+              <jvmTarget>${kotlin.plugin.jvmTarget}</jvmTarget>
               <sourceDirs>
                 <source>${kotlin.plugin.main.source}</source>
               </sourceDirs>
@@ -34,6 +36,7 @@
               <goal>test-compile</goal>
             </goals>
             <configuration>
+              <jvmTarget>${kotlin.plugin.jvmTarget}</jvmTarget>
               <sourceDirs>
                 <source>${kotlin.plugin.test.source}</source>
               </sourceDirs>
