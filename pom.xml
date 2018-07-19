@@ -14,7 +14,7 @@
   </parent>
 
   <scm>
-    <developerConnection>scm:git:https://github.com/avaje-pom/tile-kotlin-compile.git</developerConnection>
+    <developerConnection>scm:git:git@github.com:avaje-pom/tile-kotlin-compile.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
 

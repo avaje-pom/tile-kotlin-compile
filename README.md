@@ -12,12 +12,11 @@ In your project pom under build / plugins add the tiles-maven-plugin with the fo
       <plugin>
         <groupId>io.repaint.maven</groupId>
         <artifactId>tiles-maven-plugin</artifactId>
-        <version>2.8</version>
+        <version>2.11</version>
         <extensions>true</extensions>
         <configuration>
           <tiles>
-            <tile>org.avaje.tile:java-compile:1.1</tile>
-            <tile>org.avaje.tile:kotlin-compile:1.1</tile>
+            <tile>org.avaje.tile:kotlin:1.1</tile>
           </tiles>
         </configuration>
       </plugin>
@@ -33,16 +32,18 @@ Effectively the kotlin-compile tile brings in the *kotlin-maven-plugin* with con
   <!-- defaults, override in your project pom if needed -->
 
   <properties>
-    <kotlin.version>1.0.0</kotlin.version>
-    <kotlin.plugin.main.source>src/main/java</kotlin.plugin.main.source>
-    <kotlin.plugin.test.source>src/test/java</kotlin.plugin.test.source>
+    <kotlin.version>1.2.51</kotlin.version>
+    <kotlin.compiler.jvmTarget>1.8</kotlin.compiler.jvmTarget>
   </properties>
-
+  
   <!-- brought into build / plugins -->
 
   <build>
-    <plugins>
 
+    <sourceDirectory>src/main/kotlin</sourceDirectory>
+    <testSourceDirectory>src/test/kotlin</testSourceDirectory>
+
+    <plugins>
       <plugin>
         <groupId>org.jetbrains.kotlin</groupId>
         <artifactId>kotlin-maven-plugin</artifactId>
@@ -50,14 +51,12 @@ Effectively the kotlin-compile tile brings in the *kotlin-maven-plugin* with con
         <executions>
           <execution>
             <id>compile</id>
-            <phase>process-sources</phase>
+            <phase>compile</phase>
             <goals>
               <goal>compile</goal>
             </goals>
             <configuration>
-              <sourceDirs>
-                <source>${kotlin.plugin.main.source}</source>
-              </sourceDirs>
+              <jvmTarget>${kotlin.compiler.jvmTarget}</jvmTarget>
             </configuration>
           </execution>
           <execution>
@@ -67,9 +66,7 @@ Effectively the kotlin-compile tile brings in the *kotlin-maven-plugin* with con
               <goal>test-compile</goal>
             </goals>
             <configuration>
-              <sourceDirs>
-                <source>${kotlin.plugin.test.source}</source>
-              </sourceDirs>
+              <jvmTarget>${kotlin.compiler.jvmTarget}</jvmTarget>
             </configuration>
           </execution>
         </executions>
